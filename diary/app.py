@@ -117,26 +117,31 @@ def diary(diary_id):
 
     user_id = session.get('user_id')
 
-    diary = db.find_diary_by_diary_id(diary_id)
+    diary = db.find_diary_by_id(diary_id)
 
     if diary['user_id'] != user_id:
         return redirect(url_for('diaries'))
 
+    '''
     if request.method == 'POST':
-        story_name = request.form['story_name']
-        content = request.form['content']
+        diary_name = request.form['diary_name']
+        working_day = request.form['working_day']
+        process = request.form['process']
 
-        story = db.find_story_by_name(story_name)
+        story = db.find_story_by_name(diary_name)
 
         if story is None:
-            story_id = db.create_story(story_name)
+            story_id = db.create_story(diary_name)
         else:
             story_id = story['story_id']
 
-        db.create_diary_type(diary_id, story_id, NULL, NULL, NULL, NULL)
+        db.create_diary_type(diary_id, story_id, diary_name, working_day, process)
 
-    exercises = db.find_story_data_for_diary_by_story_id(diary_id)
-    return render_template('diary.html', diaries = diaries)
+    diaries = db.find_story_data_for_diary_by_story_id(diary_id)
+    render_template('diary.html', diaries = diaries)
+    '''
+    
+    return render_template('test.html')
 
 @app.route('/story_detail')
 def story_detail():

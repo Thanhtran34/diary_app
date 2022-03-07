@@ -32,7 +32,7 @@ class Database:
 
         return self.cursor.fetchall()
     
-    def find_diary_by_diary_id(self, diary_id):
+    def find_diary_by_id(self, diary_id):
         self.cursor.execute(f"SELECT * FROM diaries WHERE diary_id = {diary_id}")
 
         return self.cursor.fetchone()
@@ -47,8 +47,8 @@ class Database:
 
         return self.cursor.lastrowid
     
-    def create_diary_type(self, diary_id, story_id, name, description, day, process):
-        self.cursor.execute(f"INSERT INTO diary_type VALUES (0, {diary_id}, {story_id}, {name}, {description}, {day}, {process})")
+    def create_diary_type(self, diary_id, story_id, name, day, process):
+        self.cursor.execute(f"INSERT INTO diary_type VALUES (0, {diary_id}, {story_id}, {name}, {day}, {process})")
         self.connection.commit()
 
         return self.cursor.lastrowid

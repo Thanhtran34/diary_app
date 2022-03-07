@@ -20,7 +20,7 @@
     </thead>
     <tbody>
       {% for diary in diaries %}
-        <tr class='clickable-row' data-href="{{ url_for('diaries', diary_id=diaries['diary_id']) }}">
+        <tr class='clickable-row' data-href="{{ url_for('diaries', diary_id=diary['diary_id']) }}">
           <td>{{ diary['date'] }}</td>
           <td>{{ diary['type'] }}</td>
         </tr>

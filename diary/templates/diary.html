@@ -8,13 +8,16 @@
 <form method="post" class="col-8">
     <div class="row">
     <div class="col">
-        <input type="text" class="form-control" name="story_name" id="story_name" placeholder="Story name" required>
+        <input type="text" class="form-control" name="diary_name" id="diary_name" placeholder="Diary name" required>
     </div>
     <div class="col">
-        <input type="text" class="form-control" name="content" id="content" placeholder="content" required>
+        <input type="text" class="form-control" name="working_day" id="working_day" placeholder="Working days" required>
     </div>
     <div class="col">
-        <input type="submit" class="form-control btn btn-success" value="Add story">
+        <input type="text" class="form-control" name="process" id="process" placeholder="process" required>
+    </div>
+    <div class="col">
+        <input type="submit" class="form-control btn btn-success" value="Add diary">
     </div>
     </div>
 </form>
@@ -23,13 +26,15 @@
         <thead>
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Content</th>
+                <th scope="col">Working days</th>
+                <th scope="col">Process</th>
             </tr>
         </thead>
         {% for diary in diaries %}
             <tr>
                 <td>{{ diary['name'] }}</td>
-                <td>{{ diary['content'] }}</td>
+                <td>{{ diary['working_day'] }}</td>
+                <td>{{ diary['process'] }}</td>
             </tr>
         {% endfor %}
     </table>
