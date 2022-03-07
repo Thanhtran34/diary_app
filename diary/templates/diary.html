@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Workout{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" class="col-8">
+    <div class="row">
+    <div class="col">
+        <input type="text" class="form-control" name="story_name" id="story_name" placeholder="Story name" required>
+    </div>
+    <div class="col">
+        <input type="text" class="form-control" name="content" id="content" placeholder="content" required>
+    </div>
+    <div class="col">
+        <input type="submit" class="form-control btn btn-success" value="Add story">
+    </div>
+    </div>
+</form>
+{% if diaries %}
+    <table class="table col-8">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Content</th>
+            </tr>
+        </thead>
+        {% for diary in diaries %}
+            <tr>
+                <td>{{ diary['name'] }}</td>
+                <td>{{ diary['content'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+{% endblock %}

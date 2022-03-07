@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}My diaries{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+  <label for="diary_type">Diary Name</label>
+  <input name="diary_type" id="diary_type" required>
+  <input type="submit" class="btn btn-success btn-sm" value="Start Diary">
+</form>
+{% if diaries %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Diary Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for diary in diaries %}
+        <tr class='clickable-row' data-href="{{ url_for('diaries', diary_id=diaries['diary_id']) }}">
+          <td>{{ diary['date'] }}</td>
+          <td>{{ diary['type'] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endif %}
+{% endblock %}

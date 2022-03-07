@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Diary List{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% if stories %}
+      <table class="table col-8">
+          <thead>
+              <tr>
+                  <th scope="col">Story Name</th>
+                  <th scope="col">Average process</th>
+                  <th scope="col">Max process</th>
+                  <th scope="col">Average working days</th>
+                  <th scope="col">Total woring days</th>
+              </tr>
+          </thead>
+          {% for story in stories %}
+              <tr>
+                  <td>{{ story['name'] }}</td>
+                  <td>{{ story['avg_process'] }} %</td>
+                  <td>{{ story['max_process'] }} %</td>
+                  <td>{{ story['avg_working_day'] }}</td>
+                  <td>{{ story['total_working_day'] }}</td>
+              </tr>
+          {% endfor %}
+      </table>
+  {% endif %}
+{% endblock %}

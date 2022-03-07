@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Diary List{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% if records %}
+      <table class="table col-8">
+          <thead>
+              <tr>
+                  <th scope="col">Diary Type</th>
+                  <th scope="col">Username</th>
+              </tr>
+          </thead>
+          {% for record in records %}
+              <tr>
+                  <td>{{ record['story_name'] }}</td>
+                  <td>{{ record['username'] }}</td>
+              </tr>
+          {% endfor %}
+      </table>
+  {% endif %}
+{% endblock %}
