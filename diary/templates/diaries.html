@@ -6,8 +6,8 @@
 
 {% block content %}
 <form method="post">
-  <label for="diary_type">Diary Name</label>
-  <input name="diary_type" id="diary_type" required>
+  <label for="diary_name">Diary Description</label>
+  <input name="diary_name" id="diary_name" required>
   <input type="submit" class="btn btn-success btn-sm" value="Start Diary">
 </form>
 {% if diaries %}
@@ -22,7 +22,7 @@
       {% for diary in diaries %}
         <tr class='clickable-row' data-href="{{ url_for('diaries', diary_id=diary['diary_id']) }}">
           <td>{{ diary['date'] }}</td>
-          <td>{{ diary['type'] }}</td>
+          <td>{{ diary['name'] }}</td>
         </tr>
       {% endfor %}
     </tbody>

@@ -32,7 +32,7 @@ class Database:
 
         return self.cursor.fetchall()
     
-    def find_diary_by_id(self, diary_id):
+    def find_diary_by_diary_id(self, diary_id):
         self.cursor.execute(f"SELECT * FROM diaries WHERE diary_id = {diary_id}")
 
         return self.cursor.fetchone()
@@ -42,23 +42,23 @@ class Database:
         return self.cursor.fetchone()
     
     def create_story(self, story_name, story_content):
-        self.cursor.execute(f"INSERT INTO exercise VALUES (0, '{story_name}', '{story_content}')")
+        self.cursor.execute(f"INSERT INTO story VALUES (0, '{story_name}', '{story_content}')")
         self.connection.commit()
 
         return self.cursor.lastrowid
     
-    def create_diary_type(self, diary_id, story_id, name, day, process):
-        self.cursor.execute(f"INSERT INTO diary_type VALUES (0, {diary_id}, {story_id}, {name}, {day}, {process})")
+    def create_diary_type(self, diary_id, story_id, type, day, process):
+        self.cursor.execute(f"INSERT INTO diary_type VALUES (0, {diary_id}, {story_id}, {type}, {day}, {process})")
         self.connection.commit()
 
         return self.cursor.lastrowid
 
-    def find_story_data_for_diary_by_story_id(self, story_id):
-        self.cursor.execute(("SELECT name, description "
+    def find_story_data_for_diary_by_diary_id(self, diary_id):
+        self.cursor.execute(("SELECT name, working_day, process "
                             "FROM diary_type "
                             "INNER JOIN story "
                             "ON diary_type.story_id = story.story_id "
-                            f"WHERE story_id = {story_id}"))
+                            f"WHERE story_id = {diary_id}"))
 
         return self.cursor.fetchall()
 
@@ -82,4 +82,10 @@ class Database:
     def find_all_diary(self):
         self.cursor.execute("SELECT * FROM diary_list")
 
+        return self.cursor.fetchall()
+    
+    def find_user_id(self, diary_id):
+        self.cursor.execute(("SELECT user_id "
+                            "FROM diaries "
+                            f"WHERE diary_id = {diary_id}"))
         return self.cursor.fetchall()
