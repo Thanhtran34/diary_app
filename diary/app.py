@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from typing import List, Dict
 from flask import Flask, render_template, request, redirect, url_for, flash, session, g
 import mysql.connector
@@ -9,7 +8,7 @@ import functools
 from db import Database
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret_key'
+app.config['SECRET_KEY'] = 'thanh_tran'
 
 db_config = {
     'user': 'root',
@@ -130,7 +129,7 @@ def diary(diary_id):
         story = db.find_story_by_name(diary_name)
 
         if story is None:
-            story_id = db.create_story(diary_name, NULL)
+            story_id = db.create_story(diary_name, 'NA')
         else:
             story_id = story['story_id']
 
