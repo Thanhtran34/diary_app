@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Custom CSS -->
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}"/>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -27,7 +28,7 @@
         <a class="nav-item nav-link" href="{{ url_for('diary_list') }}">Diary List</a>
         {% if g.user %}
         <a class="nav-item nav-link" href="{{ url_for('diaries') }}">My diaries</a>
-        <a class="nav-item nav-link" href="{{ url_for('story_detail') }}">Story Detail</a>
+        <a class="nav-item nav-link" href="{{ url_for('story_detail') }}">Story Details</a>
         <a class="nav-item nav-link" href="{{ url_for('logout') }}">Log Out</a>
         {% else %}
         <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
