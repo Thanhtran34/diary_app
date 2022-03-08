@@ -55,21 +55,21 @@ CREATE VIEW diary_list
 LOCK TABLES `story` WRITE;
 /*!40000 ALTER TABLE `story` DISABLE KEYS */;
 INSERT INTO `story` 
-	   VALUES (1,'Academic Diary', 'An academic diary can take some the stress and hassle out of your life by making sure you manage your responsibilities for school better'),
-			  (2,'Food Diary','Food diaries are an excellent way to track what you\'re eating'),
-              (3,'Health Diary','A health diary is not just a list of medical readings and calorie counts. It is a way to record feelings, goals, activities, surrounding events, and results for any particular area of health'),
-              (4,'School Diary','Unlike printed diaries, which we agree are pretty “bleh”, electronic school diaries are much more customizable and some have multiple categories pre-set for you'),
-              (5,'Secret Diary', 'Everybody has certain things they don\'t wish to share with others. That\'s why a secret diary is so important to many people.'),
-              (6,'Wedding Diary', 'There are so many moving parts involved in your big day that it\'s easy to lose sleep. The good news? There is a way to organize your wedding.'),
-              (7,'Work Diary', 'Write about your work experiences to reflect on your professional life to track your day-to-day work, consider career opportunities, set milestones, and achieve your goals');
+	   VALUES (1,'Academic Diary', 'An academic diary may alleviate some of the stress and trouble in your life by assisting you in better managing your school commitments.'),
+			  (2,'Food Diary','Food diaries are a fantastic method to keep track of what you consume.'),
+              (3,'Health Diary','A health diary is more than just a record of medical data and calorie intake. It is a method of recording feelings, objectives, actions, surrounding events, and outcomes for any specific area of health.'),
+              (4,'School Diary','Unlike paper diary, which we all agree are "blah," electronic school diaries are significantly more customisable, and some come with many categories pre-set for you. '),
+              (5,'Secret Diary', 'Everyone has stuff they don\'t want to share with others. That is why many people value keeping a secret diary.'),
+              (6,'Wedding Diary', 'It\'s easy to lose sleep on your wedding day since there are so many moving aspects. The good news is...There is a method for organizing your wedding. '),
+              (7,'Work Diary', 'Write about your work experiences to reflect on your professional life, track your day-to-day job, think about career options, create milestones, and achieve your goals.');
 UNLOCK TABLES;
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` 
-       VALUES (1,'user_1','user_1'),
-              (2,'user_2','user_2'),
-			  (3,'user_3','user_3');
+       VALUES (1,'user_1','user1'),
+              (2,'user_2','user2'),
+			  (3,'user_3','user3');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 

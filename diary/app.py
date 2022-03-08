@@ -56,6 +56,10 @@ def register():
             error = 'Username is required.'
         elif not password:
             error = 'Password is required.'
+        elif len(username) < 2:
+            error = 'username must be greater than 1 character.'
+        elif len(password) < 3:
+            error = 'password must be greater than 3 character.'
         else:
             if db.find_user_by_username(username) is not None:
                 error = 'User {} is already registered.'.format(username)
