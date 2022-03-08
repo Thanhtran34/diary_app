@@ -9,7 +9,6 @@
       <table class="table col-8">
           <thead>
               <tr>
-                  <th scope="col">Diary Type</th>
                   <th scope="col">Story Name</th>
                   <th scope="col">Username</th>
                   <th scope="col">Date</th>
@@ -17,7 +16,6 @@
           </thead>
           {% for record in records %}
               <tr>
-                  <td>{{ record['diary_type'] }}</td>
                   <td>{{ record['story_name'] }}</td>
                   <td>{{ record['username'] }}</td>
                   <td>{{ record['diary_date'] }}</td>         

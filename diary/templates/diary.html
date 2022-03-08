@@ -21,7 +21,7 @@
     </div>
     </div>
 </form>
-{% if diaries %}
+{% if stories %}
     <table class="table col-8">
         <thead>
             <tr>
@@ -30,11 +30,11 @@
                 <th scope="col">Process</th>
             </tr>
         </thead>
-        {% for diary in diaries %}
+        {% for story in stories %}
             <tr>
-                <td>{{ diary['name'] }}</td>
-                <td>{{ diary['working_day'] }}</td>
-                <td>{{ diary['process'] }}</td>
+                <td>{{ story['name'] }}</td>
+                <td>{{ story['working_day'] }}</td>
+                <td>{{ story['process'] }}</td>
             </tr>
         {% endfor %}
     </table>

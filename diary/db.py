@@ -47,18 +47,18 @@ class Database:
 
         return self.cursor.lastrowid
     
-    def create_diary_type(self, diary_id, story_id, type, day, process):
-        self.cursor.execute(f"INSERT INTO diary_type VALUES (0, {diary_id}, {story_id}, {type}, {day}, {process})")
+    def create_diary_type(self, diary_id, story_id, day, process):
+        self.cursor.execute(f"INSERT INTO diary_type VALUES (0, {diary_id}, {story_id}, {day}, {process})")
         self.connection.commit()
 
         return self.cursor.lastrowid
 
     def find_story_data_for_diary_by_diary_id(self, diary_id):
-        self.cursor.execute(("SELECT name, working_day, process "
+        self.cursor.execute(("SELECT story.name, diary_type.working_day, diary_type.process "
                             "FROM diary_type "
                             "INNER JOIN story "
                             "ON diary_type.story_id = story.story_id "
-                            f"WHERE story_id = {diary_id}"))
+                            f"WHERE diary_id = {diary_id}"))
 
         return self.cursor.fetchall()
 
@@ -84,8 +84,3 @@ class Database:
 
         return self.cursor.fetchall()
     
-    def find_user_id(self, diary_id):
-        self.cursor.execute(("SELECT user_id "
-                            "FROM diaries "
-                            f"WHERE diary_id = {diary_id}"))
-        return self.cursor.fetchall()

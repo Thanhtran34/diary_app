@@ -115,6 +115,13 @@ def diary(diary_id):
       if g.user is None:
         return redirect(url_for('login'))
       
+      user_id = session.get('user_id')
+
+      diary = db.find_diary_by_diary_id(diary_id)
+
+      if diary['user_id'] != user_id:
+        return redirect(url_for('diaries'))
+      
       if request.method == 'POST':
         diary_name = request.form['diary_name']
         working_day = request.form['working_day']
@@ -127,10 +134,10 @@ def diary(diary_id):
         else:
             story_id = story['story_id']
 
-        db.create_diary_type(diary_id, story_id, diary_name, working_day, process)
-      diaries = db.find_story_data_for_diary_by_diary_id(diary_id)
+        db.create_diary_type(diary_id, story_id, working_day, process)
+      stories = db.find_story_data_for_diary_by_diary_id(diary_id)
     
-      return render_template('diary.html', diaries = diaries)
+      return render_template('diary.html', stories = stories)
 
 @app.route('/story_detail')
 def story_detail():
