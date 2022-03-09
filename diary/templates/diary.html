@@ -35,6 +35,9 @@
                 <td>{{ story['name'] }}</td>
                 <td>{{ story['working_day'] }}</td>
                 <td>{{ story['process'] }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ url_for('delete') }}">Delete</a>
+                </td>
             </tr>
         {% endfor %}
     </table>

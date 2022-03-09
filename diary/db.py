@@ -84,3 +84,8 @@ class Database:
 
         return self.cursor.fetchall()
     
+    def delete_diary_type(self,name, working_day):
+        self.cursor.execute(f"DELETE diary_type, story  FROM diary_type INNER JOIN  story ON story.story_id = diary_type.story_id WHERE story.name = '{name}' AND diary_type.working_day = {working_day};")
+        self.connection.commit()
+
+    

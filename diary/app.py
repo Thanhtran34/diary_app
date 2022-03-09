@@ -141,6 +141,21 @@ def diary(diary_id):
       stories = db.find_story_data_for_diary_by_diary_id(diary_id)
     
       return render_template('diary.html', stories = stories)
+  
+@app.route('/delete', methods=['GET','POST'])
+def delete():
+    try:
+        if g.user is None:
+          return redirect(url_for('login'))
+       
+        if request.method == 'POST':
+            name = request.form['story_name']
+            day = request.form['working_day']
+            db.delete_diary_type(name, day)
+            return redirect(url_for('diaries'))
+        return render_template('delete.html')
+    except:
+        return 'There was an error while deleting this diary'
 
 @app.route('/story_detail')
 def story_detail():

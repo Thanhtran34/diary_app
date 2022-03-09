@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Delete Confirmation{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="POST" class="col-8">
+  <div class="row">
+  <div class="col">
+      <input type="text" class="form-control" name="story_name" id="story_name" placeholder="Story name" required>
+  </div>
+  <div class="col">
+      <input type="text" class="form-control" name="working_day" id="working_day" placeholder="Working days" required>
+  </div>
+  <div class="col">
+      <input type="submit" class="form-control btn btn-success" value="Delete">
+  </div>
+  </div>
+</form>
+{% endblock %}
