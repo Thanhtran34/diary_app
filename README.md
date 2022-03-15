@@ -21,6 +21,6 @@ OR run below from diary folder
 ```shell
 python app.py
 ```
-The application is accessible on http://192.168.0.5:5000 or http://localhost:5000
+The application is accessible on http://localhost:5000
 
 - Folder myvenv is the virtual environment for the project and user can run the project by activate myvenv and run python diary/app.py without installations of requirement.txt
