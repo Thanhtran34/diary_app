@@ -1,4 +1,6 @@
-CREATE DATABASE diary_app;
+CREATE DATABASE diary_app
+	DEFAULT CHARACTER SET utf8
+    DEFAULT COLLATE utf8_general_ci;
 USE diary_app;
 
 CREATE TABLE user (
