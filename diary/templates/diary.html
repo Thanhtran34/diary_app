@@ -28,6 +28,10 @@
                 <th scope="col">Name</th>
                 <th scope="col">Working days</th>
                 <th scope="col">Process</th>
+                <th scope="col>">
+                    <a class="btn btn-info" href="{{ url_for('update') }}">Update</a>
+                    <a class="btn btn-info" href="{{ url_for('delete') }}">Delete</a>
+                </th>
             </tr>
         </thead>
         {% for story in stories %}
@@ -35,9 +39,6 @@
                 <td>{{ story['name'] }}</td>
                 <td>{{ story['working_day'] }}</td>
                 <td>{{ story['process'] }}</td>
-                <td>
-                    <a class="btn btn-info" href="{{ url_for('delete') }}">Delete</a>
-                </td>
             </tr>
         {% endfor %}
     </table>

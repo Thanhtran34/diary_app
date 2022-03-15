@@ -157,6 +157,21 @@ def delete():
     except:
         return 'There was an error while deleting this diary'
 
+@app.route('/update', methods=['GET','POST'])
+def update():
+    try:
+        if g.user is None:
+          return redirect(url_for('login'))
+       
+        if request.method == 'POST':
+            name = request.form['story_name']
+            content = request.form['story_content']
+            db.update_story_content(name, content)
+            return redirect(url_for('diaries'))
+        return render_template('update.html')
+    except:
+        return 'There was an error while updating this diary'
+
 @app.route('/story_detail')
 def story_detail():
     if g.user is None:

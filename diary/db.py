@@ -88,6 +88,8 @@ class Database:
         self.cursor.execute(f"DELETE diary_type, story  FROM diary_type INNER JOIN  story ON story.story_id = diary_type.story_id WHERE story.name = '{name}' AND diary_type.working_day = {working_day};")
         self.connection.commit()
         
-    
+    def update_story_content(self, name, content):
+        self.cursor.execute(f"UPDATE story  SET story.content = '{content}' WHERE story.name = '{name}';")
+        self.connection.commit()
 
     
